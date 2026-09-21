@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://josephtn916816.github.io/inheritance-site/sitemap.xml
