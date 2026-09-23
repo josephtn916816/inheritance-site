@@ -1,0 +1,15 @@
+/* 首頁第一輪優化：讓流程、展示畫面與支援入口可快速判讀。 */
+.hero-note { max-width: 35rem; margin: 1rem 0 0; color: #436782; font-size: .94rem; }
+.hero-steps { display: grid; gap: .7rem; margin: 1.5rem 0 0; padding: 0; list-style: none; counter-reset: hero-step; }
+.hero-steps li { display: grid; grid-template-columns: 4.9rem 1fr; gap: .75rem; align-items: center; padding: .7rem .8rem; border: 1px solid #74c7e6; border-radius: .8rem; background: #0a527e8a; }
+.hero-steps b { display: flex; gap: .45rem; align-items: center; color: #fff; }
+.hero-steps b::before { counter-increment: hero-step; content: "0" counter(hero-step); color: #8ff1ff; font-size: .72rem; letter-spacing: .06em; }
+.hero-steps span { color: #d5eff8; font-size: .9rem; }
+.feature-grid article { position: relative; overflow: hidden; }
+.feature-grid article::after { content: ""; position: absolute; right: -1.65rem; bottom: -2.3rem; width: 6.5rem; height: 6.5rem; border: 1.1rem solid #e8f7fc; border-radius: 50%; }
+.showcase-card h3 { margin-top: .45rem; }
+.showcase-kicker { display: inline-block; margin: 1rem 0 0 !important; color: #1685c2 !important; font-size: .78rem !important; font-weight: 800; letter-spacing: .08em; }
+.support-actions { display: grid; gap: .65rem; justify-items: start; flex: 0 0 auto; }
+.support-callout .quiet { width: 100%; text-align: center; }
+.support-email { color: #b7f4ff; font-size: .88rem; font-weight: 700; overflow-wrap: anywhere; }
+@media (max-width: 760px) { .hero-steps li { grid-template-columns: 4.35rem 1fr; } }
