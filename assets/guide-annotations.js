@@ -9,6 +9,9 @@
       { side: 'right', top: 27, startX: 103, startY: 37, x: 85, y: 27 }
     ]
   };
+  const fixedAnnotationImages = {
+    'client-profile': 'client-profile.svg'
+  };
 
   document.querySelectorAll('.page-guide-list article[id]').forEach((article) => {
     const details = article.querySelectorAll('dl dd');
@@ -25,14 +28,17 @@
     const figure = document.createElement('figure');
     figure.className = 'guide-figure';
     const image = document.createElement('img');
-    image.src = `../assets/tutorial-screenshots/${article.id}.png`;
+    const fixedAnnotation = fixedAnnotationImages[article.id];
+    image.src = fixedAnnotation
+      ? `../assets/tutorial-annotations/${fixedAnnotation}`
+      : `../assets/tutorial-screenshots/${article.id}.png`;
     image.alt = `${article.querySelector('h3')?.textContent?.trim() || '功能'}工作頁畫面`;
     image.loading = 'lazy';
     figure.append(image);
 
     const callouts = document.createElement('ol');
     callouts.className = 'guide-image-callouts';
-    const targets = verifiedTargets[article.id];
+    const targets = fixedAnnotation ? null : verifiedTargets[article.id];
     steps.forEach((step, index) => {
       const item = document.createElement('li');
       item.className = `guide-image-callout guide-image-callout--${index + 1}`;
@@ -71,7 +77,7 @@
         figure.append(dot);
       });
       figure.append(callouts);
-    } else {
+    } else if (!fixedAnnotation) {
       callouts.classList.add('guide-image-callouts--inline');
       inlineCallouts = callouts;
     }

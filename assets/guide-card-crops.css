@@ -91,6 +91,10 @@
   background: #fff;
   box-shadow: 0 10px 24px #1a5f9026;
 }
+.guide-figure:has(img[src*="tutorial-annotations"]) {
+  width: min(1100px, 100%);
+  min-width: 0;
+}
 .guide-image-callouts { margin: 0; padding: 0; list-style: none; }
 .guide-image-callout {
   position: absolute;
