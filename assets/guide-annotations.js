@@ -10,7 +10,7 @@
     ]
   };
   const fixedAnnotationImages = {
-    'client-profile': 'client-profile-annotated.png?v=20260928-final'
+    'client-profile': 'client-profile-annotated-v2.png?v=20260928-marker-linked'
   };
 
   document.querySelectorAll('.page-guide-list article[id]').forEach((article) => {
