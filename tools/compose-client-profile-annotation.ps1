@@ -1,7 +1,7 @@
 Add-Type -AssemblyName System.Drawing
 
 $source = Join-Path $PSScriptRoot '..\assets\tutorial-screenshots\client-profile.png'
-$output = Join-Path $PSScriptRoot '..\assets\tutorial-annotations\client-profile-annotated-v2.png'
+$output = Join-Path $PSScriptRoot '..\assets\tutorial-annotations\client-profile-annotated-v3.png'
 $canvas = New-Object System.Drawing.Bitmap 1800, 880
 $g = [System.Drawing.Graphics]::FromImage($canvas)
 $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
@@ -55,7 +55,7 @@ function Draw-Target([int]$x, [int]$y) {
   $g.DrawEllipse((New-Object System.Drawing.Pen ([System.Drawing.Color]::White), 3), $inner)
 }
 
-# The leader lines terminate at the centre of their marker; they never use a frame around a control.
+# Each marker is placed at the nearest outside edge of its target: top, right-top, or left-top.
 $stepOne = -join ([char[]](0x9078,0x300C,0x65B0,0x589E,0x5BA2,0x6236,0x300D,0x6216,0x76EE,0x524D,0x5BA2,0x6236))
 $stepTwo = (-join ([char[]](0x586B,0x59D3,0x540D,0x8207))) + "`n" + (-join ([char[]](0x5FC5,0x8981,0x6B04,0x4F4D)))
 $stepThree = (-join ([char[]](0x6309,0x5132,0x5B58,0x8CC7,0x6599,0xFF0C))) + "`n" + (-join ([char[]](0x518D,0x524D,0x5F80,0x5206,0x6790,0x9801)))
@@ -63,12 +63,12 @@ Draw-Callout 780 50 550 65 '1' $stepOne
 Draw-Callout 15 295 225 97 '2' $stepTwo
 Draw-Callout 1547 198 238 100 '3' $stepThree
 
-$g.DrawLine($leader, 1065, 115, 1022, 328)
-$g.DrawLine($leader, 239, 389, 288, 416)
-$g.DrawLine($leader, 1547, 298, 1378, 377)
-Draw-Target 1022 328
-Draw-Target 288 416
-Draw-Target 1378 377
+$g.DrawLine($leader, 1065, 115, 1022, 207)
+$g.DrawLine($leader, 240, 389, 263, 400)
+$g.DrawLine($leader, 1547, 298, 1518, 315)
+Draw-Target 1022 207
+Draw-Target 263 400
+Draw-Target 1518 315
 
 $screen.Dispose()
 $border.Dispose()
