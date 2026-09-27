@@ -13,6 +13,9 @@
   const fixedAnnotationImages = {
     'client-profile': 'client-profile-annotated-v5.png?v=20260928-inner-edge-markers'
   };
+  const tutorialImages = {
+    'family': 'family-virtual-customer.png?v=20260928-test-client'
+  };
 
   document.querySelectorAll('.page-guide-list article[id]').forEach((article) => {
     const details = article.querySelectorAll('dl dd');
@@ -32,7 +35,7 @@
     const fixedAnnotation = fixedAnnotationImages[article.id];
     image.src = fixedAnnotation
       ? `${assetRoot}/tutorial-annotations/${fixedAnnotation}`
-      : `${assetRoot}/tutorial-screenshots/${article.id}.png`;
+      : `${assetRoot}/tutorial-screenshots/${tutorialImages[article.id] || `${article.id}.png`}`;
     image.alt = `${article.querySelector('h3')?.textContent?.trim() || '功能'}工作頁畫面`;
     image.loading = 'lazy';
     figure.append(image);
@@ -83,7 +86,11 @@
       inlineCallouts = callouts;
     }
     const heading = article.querySelector('h3');
-    heading?.insertAdjacentElement('afterend', figure);
+    const sample = document.createElement('p');
+    sample.className = 'guide-sample-client';
+    sample.textContent = '本頁教學案例：虛擬客戶「測試1小姐」。所有人物、金額與關係僅供示範，請勿視為真實客戶資料。';
+    heading?.insertAdjacentElement('afterend', sample);
+    sample.insertAdjacentElement('afterend', figure);
     if (inlineCallouts) figure.insertAdjacentElement('afterend', inlineCallouts);
   });
 })();

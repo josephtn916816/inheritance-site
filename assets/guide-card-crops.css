@@ -4,7 +4,6 @@
 
 /* 首頁總覽以完整程式入口畫面呈現；卡片熱區沒有文字覆蓋。 */
 .workspace-guide {
-  position: relative;
   max-width: 1350px;
   margin: 22px auto 0;
   overflow: hidden;
@@ -13,7 +12,8 @@
   background: #fff;
   box-shadow: 0 10px 25px #1a5f9028;
 }
-.workspace-guide > img { display: block; width: 100%; height: auto; }
+.workspace-guide-image { position: relative; overflow: hidden; }
+.workspace-guide-image > img { display: block; width: 100%; height: auto; margin-bottom: -42px; }
 .workspace-hotspot {
   position: absolute;
   left: var(--x);
@@ -30,6 +30,42 @@
   box-shadow: inset 0 0 0 3px #e25348, 0 0 0 2px #fff, 0 0 0 5px #e25348;
   background: #ffffff10;
 }
+.workspace-software-info {
+  position: absolute;
+  left: 2.6%;
+  bottom: 5.8%;
+  z-index: 2;
+  padding: 7px 11px;
+  border: 1px solid #9de5f0;
+  border-radius: 8px;
+  background: #06365ccc;
+  color: #fff;
+  font-size: clamp(.68rem, 1.15vw, .93rem);
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+.workspace-guide-bottom-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+  padding: 12px 12px 14px;
+  background: #f5fbfe;
+}
+.workspace-guide-bottom-cards a {
+  display: grid;
+  gap: 4px;
+  min-height: 62px;
+  padding: 13px 17px;
+  border: 1px solid #82bfe0;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #eff8ff, #e8f7fc);
+  color: #164f70;
+  text-decoration: none;
+}
+.workspace-guide-bottom-cards a:nth-child(2) { border-color: #7dcab2; background: linear-gradient(135deg, #effcf5, #e7faf4); }
+.workspace-guide-bottom-cards a:hover, .workspace-guide-bottom-cards a:focus-visible { box-shadow: inset 0 0 0 2px #e25348; }
+.workspace-guide-bottom-cards b { font-size: 1.06rem; }
+.workspace-guide-bottom-cards span { color: #28627f; font-size: .92rem; }
 .workspace-guide-tip {
   max-width: 1350px;
   min-height: 116px;
@@ -45,7 +81,7 @@
 .workspace-guide-tip p:last-child { margin: 0; line-height: 1.65; }
 .workspace-guide-lower {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 14px;
   max-width: 1350px;
   margin: 16px auto 0;
@@ -143,6 +179,17 @@
 .page-guide-list article::before,
 .page-guide-list article::after { display: none !important; }
 .page-guide-list article > h3 { margin-bottom: 14px !important; }
+.guide-sample-client {
+  max-width: 900px;
+  margin: 0 auto 16px !important;
+  padding: 10px 14px;
+  border-left: 4px solid #1686bd;
+  border-radius: 7px;
+  background: #edf8fd;
+  color: #1b5b7b;
+  font-weight: 700;
+  line-height: 1.55;
+}
 .guide-figure {
   position: relative;
   width: min(720px, calc(100% - 410px));
@@ -285,11 +332,13 @@
 }
 @media (max-width: 760px) {
   .workspace-guide { border-radius: 10px; }
+  .workspace-guide-image > img { margin-bottom: -28px; }
   .workspace-hotspot { border-radius: 8px; }
   .workspace-hotspot:hover,
   .workspace-hotspot:focus-visible { box-shadow: inset 0 0 0 2px #e25348, 0 0 0 1px #fff, 0 0 0 3px #e25348; }
   .workspace-guide-tip { min-height: 128px; padding: 15px; }
-  .workspace-guide-lower { grid-template-columns: 1fr; }
+  .workspace-software-info { bottom: 6%; padding: 4px 6px; border-radius: 5px; }
+  .workspace-guide-bottom-cards, .workspace-guide-lower { grid-template-columns: 1fr; }
   .guide-card-grid article:not(.customer-card) { grid-template-columns: 1fr !important; }
   .guide-card-grid article > a:has(img) { grid-column: 1 !important; grid-row: auto !important; width: min(302px, 100%) !important; }
   .guide-figure { width: 100%; min-width: 0; margin-bottom: 16px; }
