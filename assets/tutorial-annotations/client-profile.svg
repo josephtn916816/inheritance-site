@@ -1,38 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1950 900" role="img" aria-labelledby="title description">
   <title id="title">客戶基本資料操作引導</title>
   <desc id="description">新增客戶、填寫基本資料及儲存資料的操作位置。</desc>
-  <rect width="1600" height="900" fill="#ffffff"/>
-  <image href="../tutorial-screenshots/client-profile.png" x="125" y="150" width="1350" height="663"/>
+  <rect width="1950" height="900" fill="#ffffff"/>
+  <image href="../tutorial-screenshots/client-profile.png" x="300" y="150" width="1350" height="663"/>
   <g fill="none" stroke="#e25348" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M940 104V320"/>
-    <path d="M270 434H275"/>
-    <path d="M1318 286L1310 330"/>
+    <path d="M1115 104V320"/>
+    <path d="M285 434H450"/>
+    <path d="M1668 286L1485 330"/>
   </g>
   <g fill="#e25348">
-    <circle cx="940" cy="334" r="13"/>
-    <circle cx="275" cy="432" r="13"/>
-    <circle cx="1310" cy="330" r="13"/>
+    <circle cx="1115" cy="334" r="13"/>
+    <circle cx="450" cy="432" r="13"/>
+    <circle cx="1485" cy="330" r="13"/>
   </g>
   <g fill="none" stroke="#ffffff" stroke-width="2">
-    <circle cx="940" cy="334" r="7"/>
-    <circle cx="275" cy="432" r="7"/>
-    <circle cx="1310" cy="330" r="7"/>
+    <circle cx="1115" cy="334" r="7"/>
+    <circle cx="450" cy="432" r="7"/>
+    <circle cx="1485" cy="330" r="7"/>
   </g>
   <g font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" fill="#214f6d">
-    <g transform="translate(800 24)">
+    <g transform="translate(975 24)">
       <rect width="280" height="80" rx="13" fill="#f7fcfe" stroke="#78b9d4" stroke-width="2"/>
       <circle cx="24" cy="28" r="13" fill="#e25348"/>
       <circle cx="24" cy="28" r="7" fill="none" stroke="#fff" stroke-width="2"/>
       <text x="48" y="34" font-size="22" font-weight="700">選「新增客戶」</text>
       <text x="48" y="62" font-size="21">或目前客戶</text>
     </g>
-    <g transform="translate(0 395)">
+    <g transform="translate(15 395)">
       <rect width="270" height="78" rx="13" fill="#f7fcfe" stroke="#78b9d4" stroke-width="2"/>
       <circle cx="24" cy="28" r="13" fill="#e25348"/>
       <circle cx="24" cy="28" r="7" fill="none" stroke="#fff" stroke-width="2"/>
       <text x="48" y="34" font-size="21" font-weight="700">填姓名與必要欄位</text>
     </g>
-    <g transform="translate(1318 246)">
+    <g transform="translate(1668 246)">
       <rect width="282" height="82" rx="13" fill="#f7fcfe" stroke="#78b9d4" stroke-width="2"/>
       <circle cx="24" cy="28" r="13" fill="#e25348"/>
       <circle cx="24" cy="28" r="7" fill="none" stroke="#fff" stroke-width="2"/>

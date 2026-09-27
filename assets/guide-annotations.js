@@ -10,7 +10,7 @@
     ]
   };
   const fixedAnnotationImages = {
-    'client-profile': 'client-profile.svg'
+    'client-profile': 'client-profile.svg?v=20260928-layout'
   };
 
   document.querySelectorAll('.page-guide-list article[id]').forEach((article) => {
