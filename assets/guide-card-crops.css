@@ -1,31 +1,31 @@
-/* 首頁功能卡截圖：只裁切入口卡片，不顯示工作頁全圖或文字覆蓋。 */
-.guide-card-grid article:not(.customer-card):not(.multi-page-card)>a{
-  align-self:start;
-  min-height:var(--card-height,100px);
-  padding:0;
-  border:1px solid #8fc6df;
-  border-radius:10px;
-  background-image:linear-gradient(#0000,#0000),url("screenshots/workspace-home.png");
-  background-size:100% 100%,450% auto;
-  background-position:0 0,var(--card-x,36%) var(--card-y,34%);
-  background-repeat:no-repeat;
-  color:transparent;
-  font-size:0;
-  box-shadow:0 5px 13px #1a5f9028;
+/* 首頁功能卡截圖：直接顯示實機卡片圖片，不疊加說明文字。 */
+.guide-card-grid article > a:has(img) {
+  align-self: start;
+  display: block;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #8fc6df;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 5px 13px #1a5f9028;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
 }
-.guide-card-grid article:not(.customer-card):not(.multi-page-card)>a::after{content:none!important}
-.guide-card-grid article:has(a[href="#client-profile"]){--card-x:36%;--card-y:34%;--card-height:100px}
-.guide-card-grid article:has(a[href="#family"]){--card-x:66%;--card-y:34%;--card-height:100px}
-.guide-card-grid article:has(a[href="#estate-tax"]){--card-x:96%;--card-y:34%;--card-height:100px}
-.guide-card-grid article:has(a[href="#deduction"]){--card-x:36%;--card-y:71%;--card-height:42px}
-.guide-card-grid article:has(a[href="#asset-distribution-tax"]){--card-x:66%;--card-y:71%;--card-height:42px}
-.guide-card-grid article:has(a[href="#commercial-insurance"]){--card-x:96%;--card-y:71%;--card-height:42px}
-.guide-card-grid article:has(a[href="#disability-grades"]){--card-x:36%;--card-y:86%;--card-height:42px}
-.guide-card-grid article:has(a[href="#retirement-pension"]){--card-x:66%;--card-y:86%;--card-height:42px}
-.guide-card-grid article:has(a[href="#loan-analysis"]){--card-x:96%;--card-y:86%;--card-height:42px}
-.guide-card-grid article:has(a[href="#land-exchange"]){--card-x:36%;--card-y:100%;--card-height:42px}
-.guide-card-grid article:has(a[href="#report-center"]){--card-x:66%;--card-y:100%;--card-height:42px}
-.guide-card-grid article:has(a[href="#laws"]){--card-x:96%;--card-y:100%;--card-height:42px}
-.guide-card-grid article:has(a[href="#backup-restore"]),.guide-card-grid article:has(a[href="#email-automation"]),.guide-card-grid article:has(a[href="#commercial-control"]){--card-x:36%;--card-y:100%;--card-height:42px}
-@media(max-width:900px){.guide-card-grid article:not(.customer-card):not(.multi-page-card)>a{min-height:var(--card-height,100px)}}
-@media(max-width:620px){.guide-card-grid article:not(.customer-card):not(.multi-page-card)>a{min-height:var(--card-height,100px)}}
+
+.guide-card-grid article > a:has(img)::after { content: none !important; }
+
+.guide-card-grid article > a:has(img) img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+}
+
+.guide-card-grid article > a:has(img):hover,
+.guide-card-grid article > a:has(img):focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 18px #1a5f9040;
+}
