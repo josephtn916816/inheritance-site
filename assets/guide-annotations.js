@@ -10,7 +10,7 @@
     ]
   };
   const fixedAnnotationImages = {
-    'client-profile': 'client-profile-annotated-v4.png?v=20260928-smaller-markers'
+    'client-profile': 'client-profile-annotated-v5.png?v=20260928-inner-edge-markers'
   };
 
   document.querySelectorAll('.page-guide-list article[id]').forEach((article) => {

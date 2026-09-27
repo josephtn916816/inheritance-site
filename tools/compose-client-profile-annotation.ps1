@@ -1,7 +1,7 @@
 Add-Type -AssemblyName System.Drawing
 
 $source = Join-Path $PSScriptRoot '..\assets\tutorial-screenshots\client-profile.png'
-$output = Join-Path $PSScriptRoot '..\assets\tutorial-annotations\client-profile-annotated-v4.png'
+$output = Join-Path $PSScriptRoot '..\assets\tutorial-annotations\client-profile-annotated-v5.png'
 $canvas = New-Object System.Drawing.Bitmap 1800, 880
 $g = [System.Drawing.Graphics]::FromImage($canvas)
 $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
@@ -16,7 +16,7 @@ $g.DrawImage($screen, $screenRect)
 $red = [System.Drawing.Color]::FromArgb(238, 38, 38)
 $ink = [System.Drawing.Color]::FromArgb(13, 43, 72)
 $border = New-Object System.Drawing.Pen $red, 3
-$leader = New-Object System.Drawing.Pen $red, 3
+$leader = New-Object System.Drawing.Pen $red, 2
 $leader.StartCap = [System.Drawing.Drawing2D.LineCap]::Round
 $leader.EndCap = [System.Drawing.Drawing2D.LineCap]::Round
 $bodyFont = New-Object System.Drawing.Font 'Microsoft JhengHei', 24, ([System.Drawing.FontStyle]::Bold)
@@ -61,7 +61,7 @@ function Draw-Target([int]$x, [int]$y) {
   $g.DrawEllipse((New-Object System.Drawing.Pen ([System.Drawing.Color]::White), 2), $inner)
 }
 
-# Each marker is placed at the nearest outside edge of its target: top, right-top, or left-top.
+# Markers just touch the usable inside edge of their targets without covering any label.
 $stepOne = -join ([char[]](0x9078,0x300C,0x65B0,0x589E,0x5BA2,0x6236,0x300D,0x6216,0x76EE,0x524D,0x5BA2,0x6236))
 $stepTwo = (-join ([char[]](0x586B,0x59D3,0x540D,0x8207))) + "`n" + (-join ([char[]](0x5FC5,0x8981,0x6B04,0x4F4D)))
 $stepThree = (-join ([char[]](0x6309,0x5132,0x5B58,0x8CC7,0x6599,0xFF0C))) + "`n" + (-join ([char[]](0x518D,0x524D,0x5F80,0x5206,0x6790,0x9801)))
@@ -69,12 +69,12 @@ Draw-Callout 780 50 550 65 '1' $stepOne
 Draw-Callout 15 295 225 97 '2' $stepTwo
 Draw-Callout 1547 198 238 100 '3' $stepThree
 
-$g.DrawLine($leader, 1065, 115, 1022, 207)
-$g.DrawLine($leader, 240, 389, 263, 400)
-$g.DrawLine($leader, 1547, 298, 1518, 315)
-Draw-Target 1022 207
-Draw-Target 263 400
-Draw-Target 1518 315
+$g.DrawLine($leader, 1065, 115, 1022, 215)
+$g.DrawLine($leader, 240, 389, 270, 408)
+$g.DrawLine($leader, 1547, 298, 1502, 335)
+Draw-Target 1022 215
+Draw-Target 270 408
+Draw-Target 1502 335
 
 $screen.Dispose()
 $border.Dispose()
