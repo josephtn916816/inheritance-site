@@ -17,4 +17,8 @@
 .support-actions { display: grid; gap: .65rem; justify-items: start; flex: 0 0 auto; }
 .support-callout .quiet { width: 100%; text-align: center; }
 .support-email { color: #b7f4ff; font-size: .88rem; font-weight: 700; overflow-wrap: anywhere; }
+.guide-callout { display:flex; align-items:center; justify-content:space-between; gap:28px; padding:38px; border:1px solid #b7dfed; border-radius:24px; background:linear-gradient(135deg,#edfaff,#f8f3ff); }
+.guide-callout h2 { margin:0 0 8px; }
+.guide-callout p:not(.eyebrow) { max-width:700px; margin:0; color:#597187; }
 @media (max-width: 760px) { .hero-steps li { grid-template-columns: 4.35rem 1fr; } .release-status-four { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .guide-callout { display:block; padding:30px; } .guide-callout .button { display:inline-block; margin-top:20px; } }
