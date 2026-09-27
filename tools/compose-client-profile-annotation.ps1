@@ -1,7 +1,7 @@
 Add-Type -AssemblyName System.Drawing
 
 $source = Join-Path $PSScriptRoot '..\assets\tutorial-screenshots\client-profile.png'
-$output = Join-Path $PSScriptRoot '..\assets\tutorial-annotations\client-profile-annotated-v3.png'
+$output = Join-Path $PSScriptRoot '..\assets\tutorial-annotations\client-profile-annotated-v4.png'
 $canvas = New-Object System.Drawing.Bitmap 1800, 880
 $g = [System.Drawing.Graphics]::FromImage($canvas)
 $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
@@ -20,7 +20,7 @@ $leader = New-Object System.Drawing.Pen $red, 3
 $leader.StartCap = [System.Drawing.Drawing2D.LineCap]::Round
 $leader.EndCap = [System.Drawing.Drawing2D.LineCap]::Round
 $bodyFont = New-Object System.Drawing.Font 'Microsoft JhengHei', 24, ([System.Drawing.FontStyle]::Bold)
-$numberFont = New-Object System.Drawing.Font 'Arial', 22, ([System.Drawing.FontStyle]::Bold)
+$numberFont = New-Object System.Drawing.Font 'Arial', 17, ([System.Drawing.FontStyle]::Bold)
 
 function Draw-RoundedBox([int]$x, [int]$y, [int]$w, [int]$h) {
   $radius = 12
@@ -38,8 +38,14 @@ function Draw-RoundedBox([int]$x, [int]$y, [int]$w, [int]$h) {
 function Draw-Callout([int]$x, [int]$y, [int]$w, [int]$h, [string]$number, [string]$text) {
   Draw-RoundedBox $x $y $w $h
   $circle = New-Object System.Drawing.Rectangle ($x + 18), ($y + 16), 30, 30
-  $g.FillEllipse((New-Object System.Drawing.SolidBrush $red), $circle)
-  $g.DrawString($number, $numberFont, [System.Drawing.Brushes]::White, ($x + 25), ($y + 17))
+  $g.FillEllipse([System.Drawing.Brushes]::White, $circle)
+  $g.DrawEllipse((New-Object System.Drawing.Pen $red, 3), $circle)
+  $numberFormat = New-Object System.Drawing.StringFormat
+  $numberFormat.Alignment = [System.Drawing.StringAlignment]::Center
+  $numberFormat.LineAlignment = [System.Drawing.StringAlignment]::Center
+  $circleTextRect = New-Object System.Drawing.RectangleF ($x + 18), ($y + 16), 30, 30
+  $g.DrawString($number, $numberFont, (New-Object System.Drawing.SolidBrush $red), $circleTextRect, $numberFormat)
+  $numberFormat.Dispose()
   $textRect = New-Object System.Drawing.RectangleF ($x + 60), ($y + 12), ($w - 72), ($h - 18)
   $format = New-Object System.Drawing.StringFormat
   $format.Alignment = [System.Drawing.StringAlignment]::Near
@@ -49,10 +55,10 @@ function Draw-Callout([int]$x, [int]$y, [int]$w, [int]$h, [string]$number, [stri
 }
 
 function Draw-Target([int]$x, [int]$y) {
-  $outer = New-Object System.Drawing.Rectangle ($x - 15), ($y - 15), 30, 30
-  $inner = New-Object System.Drawing.Rectangle ($x - 10), ($y - 10), 20, 20
+  $outer = New-Object System.Drawing.Rectangle ($x - 8), ($y - 8), 16, 16
+  $inner = New-Object System.Drawing.Rectangle ($x - 5), ($y - 5), 10, 10
   $g.FillEllipse((New-Object System.Drawing.SolidBrush $red), $outer)
-  $g.DrawEllipse((New-Object System.Drawing.Pen ([System.Drawing.Color]::White), 3), $inner)
+  $g.DrawEllipse((New-Object System.Drawing.Pen ([System.Drawing.Color]::White), 2), $inner)
 }
 
 # Each marker is placed at the nearest outside edge of its target: top, right-top, or left-top.
