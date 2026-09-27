@@ -21,7 +21,7 @@
       host.replaceChildren(lesson);
 
       const annotations = document.createElement('script');
-      annotations.src = '../../assets/guide-annotations.js?v=20260928-split-asset-root';
+      annotations.src = '../../assets/guide-annotations.js?v=20260929-test-client';
       annotations.defer = true;
       document.body.append(annotations);
     })
