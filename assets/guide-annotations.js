@@ -4,7 +4,7 @@
   // 只使用已依實機畫面核對過的標示座標；未核對的頁面絕不猜測位置。
   const verifiedTargets = {
     'client-profile': [
-      { side: 'top', top: -21, left: 59, startX: 59, startY: -3, x: 59, y: 30 },
+      { side: 'top', top: '-72px', left: 59, startX: 59, startY: -3, x: 59, y: 30 },
       { side: 'left', top: 42, startX: -3, startY: 53, x: 20, y: 39 },
       { side: 'right', top: 27, startX: 103, startY: 37, x: 85, y: 27 }
     ]
@@ -42,7 +42,7 @@
       const target = targets?.[index];
       if (target) {
         item.dataset.side = target.side;
-        item.style.setProperty('--callout-top', `${target.top}%`);
+        item.style.setProperty('--callout-top', typeof target.top === 'number' ? `${target.top}%` : target.top);
         if (target.left) item.style.setProperty('--callout-left', `${target.left}%`);
       } else {
         item.classList.add('guide-image-callout--inline');
