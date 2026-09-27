@@ -4,9 +4,9 @@
   // 只使用已依實機畫面核對過的標示座標；未核對的頁面絕不猜測位置。
   const verifiedTargets = {
     'client-profile': [
-      { side: 'left', top: 7, startY: 19, x: 59, y: 23 },
-      { side: 'left', top: 42, startY: 53, x: 18, y: 46 },
-      { side: 'right', top: 27, startY: 37, x: 85, y: 32 }
+      { side: 'top', top: -82, left: 59, startX: 59, startY: -3, x: 59, y: 30 },
+      { side: 'left', top: 42, startX: -3, startY: 53, x: 20, y: 39 },
+      { side: 'right', top: 27, startX: 103, startY: 37, x: 85, y: 27 }
     ]
   };
 
@@ -43,6 +43,7 @@
       if (target) {
         item.dataset.side = target.side;
         item.style.setProperty('--callout-top', `${target.top}%`);
+        if (target.left) item.style.setProperty('--callout-left', `${target.left}%`);
       } else {
         item.classList.add('guide-image-callout--inline');
       }
@@ -55,20 +56,20 @@
       svg.setAttribute('class', 'guide-leaders');
       svg.setAttribute('viewBox', '0 0 100 100');
       svg.setAttribute('preserveAspectRatio', 'none');
+      figure.append(svg);
       targets.slice(0, steps.length).forEach((target) => {
         const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', target.side === 'left' ? '0' : '100');
+        line.setAttribute('x1', String(target.startX ?? (target.side === 'left' ? -3 : 103)));
         line.setAttribute('y1', String(target.startY));
         line.setAttribute('x2', String(target.x));
         line.setAttribute('y2', String(target.y));
         svg.append(line);
-        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        dot.setAttribute('cx', String(target.x));
-        dot.setAttribute('cy', String(target.y));
-        dot.setAttribute('r', '1.05');
-        svg.append(dot);
+        const dot = document.createElement('span');
+        dot.className = 'guide-target-dot';
+        dot.style.setProperty('--target-x', `${target.x}%`);
+        dot.style.setProperty('--target-y', `${target.y}%`);
+        figure.append(dot);
       });
-      figure.append(svg);
       figure.append(callouts);
     } else {
       callouts.classList.add('guide-image-callouts--inline');

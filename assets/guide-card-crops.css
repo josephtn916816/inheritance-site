@@ -149,6 +149,12 @@
 }
 .guide-image-callout[data-side="left"] { right: calc(100% + 20px); left: auto; }
 .guide-image-callout[data-side="right"] { left: calc(100% + 20px); right: auto; }
+.guide-figure:has(.guide-image-callout[data-side="top"]) { margin-top: 104px; }
+.guide-image-callout[data-side="top"] {
+  top: var(--callout-top) !important;
+  left: calc(var(--callout-left) - 95px);
+  right: auto;
+}
 .guide-image-callout[data-side]::before,
 .guide-image-callout[data-side]::after { display: none; }
 .guide-leaders {
@@ -160,7 +166,27 @@
   pointer-events: none;
 }
 .guide-leaders line { stroke: #e25348; stroke-width: .35; }
-.guide-leaders circle { fill: #e25348; stroke: #fff; stroke-width: .4; }
+.guide-target-dot {
+  position: absolute;
+  z-index: 2;
+  top: var(--target-y);
+  left: var(--target-x);
+  display: block;
+  width: 15px;
+  height: 15px;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #e25348;
+  box-shadow: 0 1px 5px #7a141875;
+}
+.guide-target-dot::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+}
 .guide-image-callouts--inline {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -194,6 +220,11 @@
   .guide-image-callout { position: relative; inset: auto; width: auto; font-size: .88rem; }
   .guide-image-callout::after { top: -8px; left: 23px; width: 0; height: 8px; border-top: 0; border-left: 2px solid #e25348; }
   .guide-image-callout::before { display: none; }
+  .guide-figure:has(.guide-image-callout[data-side="top"]) { margin-top: 18px; }
+  .guide-image-callout[data-side] { position: relative; inset: auto; width: auto; }
+  .guide-image-callouts:not(.guide-image-callouts--inline) { display: grid; gap: 9px; margin-top: 12px; }
+  .guide-image-callouts:not(.guide-image-callouts--inline) .guide-image-callout { margin: 0; }
+  .guide-leaders,.guide-target-dot { display: none; }
   .guide-image-callouts--inline { grid-template-columns: 1fr; }
   .page-guide-list article { padding: 22px 18px !important; }
 }
