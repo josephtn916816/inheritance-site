@@ -1,6 +1,7 @@
 /* 將同一頁的操作步驟緊貼在實機圖旁；不在圖中遮住按鍵。 */
 (() => {
   const numberPattern = /[①②③④⑤]/;
+  const assetRoot = document.body.dataset.guideAssets || '../assets';
   // 只使用已依實機畫面核對過的標示座標；未核對的頁面絕不猜測位置。
   const verifiedTargets = {
     'client-profile': [
@@ -30,8 +31,8 @@
     const image = document.createElement('img');
     const fixedAnnotation = fixedAnnotationImages[article.id];
     image.src = fixedAnnotation
-      ? `../assets/tutorial-annotations/${fixedAnnotation}`
-      : `../assets/tutorial-screenshots/${article.id}.png`;
+      ? `${assetRoot}/tutorial-annotations/${fixedAnnotation}`
+      : `${assetRoot}/tutorial-screenshots/${article.id}.png`;
     image.alt = `${article.querySelector('h3')?.textContent?.trim() || '功能'}工作頁畫面`;
     image.loading = 'lazy';
     figure.append(image);

@@ -1,4 +1,6 @@
 /* 首頁功能卡截圖：直接顯示實機卡片圖片，不疊加說明文字。 */
+.guide-return-home { display: inline-block; margin-bottom: 14px; color: #0f638e; font-weight: 800; text-decoration: none; }
+.guide-return-home:hover, .guide-return-home:focus-visible { text-decoration: underline; }
 .guide-card-grid article > a:has(img) {
   align-self: start;
   display: block;
