@@ -10,7 +10,7 @@
     ]
   };
   const fixedAnnotationImages = {
-    'client-profile': 'client-profile.svg?v=20260928-layout'
+    'client-profile': 'client-profile-annotated.png?v=20260928-final'
   };
 
   document.querySelectorAll('.page-guide-list article[id]').forEach((article) => {
