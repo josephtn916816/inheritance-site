@@ -21,7 +21,7 @@
       host.replaceChildren(lesson);
 
       const annotations = document.createElement('script');
-      annotations.src = '../../assets/guide-annotations.js?v=20260929-test-client';
+      annotations.src = '../../assets/guide-annotations.js?v=20260927-client-actions';
       annotations.defer = true;
       document.body.append(annotations);
     })

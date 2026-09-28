@@ -160,6 +160,24 @@
   min-width: 600px;
   margin: 18px auto 26px;
 }
+.guide-action-hotspot {
+  position: absolute;
+  left: var(--action-x);
+  top: var(--action-y);
+  width: var(--action-w);
+  height: var(--action-h);
+  z-index: 4;
+  border-radius: 10%;
+  outline: 0;
+  background: transparent;
+  transition: box-shadow .16s ease, background .16s ease, transform .16s ease;
+}
+.guide-action-hotspot:hover,
+.guide-action-hotspot:focus-visible {
+  background: #ffffff18;
+  box-shadow: inset 0 0 0 3px #e25348, 0 0 0 2px #fff, 0 0 0 4px #e25348;
+  transform: translateY(-1px);
+}
 .guide-figure > img {
   display: block;
   width: 100%;

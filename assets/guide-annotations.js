@@ -14,7 +14,15 @@
     'client-profile': 'client-profile-annotated-v5.png?v=20260928-inner-edge-markers'
   };
   const tutorialImages = {
+    'client-profile-new': 'client-profile.png',
     'family': 'family-virtual-customer.png?v=20260928-test-client'
+  };
+  const interactiveHotspots = {
+    'client-profile': [
+      { href: 'client-profile-new.html', x: 53.9, y: 24.8, w: 5.6, h: 10, label: '新增客戶：開啟新增客戶操作教學' },
+      { href: 'client-profile-search.html', x: 60, y: 24.8, w: 5.6, h: 10, label: '客戶搜尋：開啟客戶搜尋操作教學' },
+      { href: 'business-card-scan.html', x: 66.1, y: 24.8, w: 5.6, h: 10, label: '名片辨識建檔：開啟名片辨識建檔操作教學' }
+    ]
   };
 
   document.querySelectorAll('.page-guide-list article[id]').forEach((article) => {
@@ -39,6 +47,19 @@
     image.alt = `${article.querySelector('h3')?.textContent?.trim() || '功能'}工作頁畫面`;
     image.loading = 'lazy';
     figure.append(image);
+
+    (interactiveHotspots[article.id] || []).forEach((hotspot) => {
+      const link = document.createElement('a');
+      link.className = 'guide-action-hotspot';
+      link.href = hotspot.href;
+      link.setAttribute('aria-label', hotspot.label);
+      link.title = hotspot.label;
+      link.style.setProperty('--action-x', `${hotspot.x}%`);
+      link.style.setProperty('--action-y', `${hotspot.y}%`);
+      link.style.setProperty('--action-w', `${hotspot.w}%`);
+      link.style.setProperty('--action-h', `${hotspot.h}%`);
+      figure.append(link);
+    });
 
     const callouts = document.createElement('ol');
     callouts.className = 'guide-image-callouts';

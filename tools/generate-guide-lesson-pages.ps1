@@ -1,5 +1,5 @@
 $pageIds = @(
-  'client-profile', 'client-profile-search', 'business-card-scan', 'client-service-history',
+  'client-profile', 'client-profile-new', 'client-profile-search', 'business-card-scan', 'client-service-history',
   'family', 'inheritance-order', 'deduction', 'estate-tax', 'asset-distribution-tax',
   'commercial-insurance', 'disability-grades', 'retirement-pension', 'retirement-labor-scenario',
   'retirement-pension-schedule', 'loan-analysis', 'land-exchange', 'report-center', 'laws',
@@ -20,7 +20,7 @@ $template = @'
     <link rel="stylesheet" href="../../assets/site.css">
     <link rel="stylesheet" href="../../assets/site-enhancements.css">
     <link rel="stylesheet" href="../../assets/guide.css?v=20260927-card-crops">
-    <link rel="stylesheet" href="../../assets/guide-card-crops.css?v=20260929-test-client">
+    <link rel="stylesheet" href="../../assets/guide-card-crops.css?v=20260927-full-home-fit">
     <link rel="stylesheet" href="../../assets/guide-lesson-page.css?v=20260928-split-pages">
   </head>
   <body data-lesson="{{LESSON_ID}}" data-guide-assets="../../assets">
@@ -32,7 +32,7 @@ $template = @'
       <a class="lesson-page-footer" href="../">&larr; &#22238;&#21040;&#39318;&#38913;&#27599;&#19968;&#24373;&#21151;&#33021;&#21345;</a>
     </main>
     <footer><span>&copy; 2026 &#20659;&#25215;&#26234;&#31574;</span><span><a href="../../">&#39318;&#38913;</a> &middot; <a href="../../support/">&#25903;&#25588;&#20013;&#24515;</a> &middot; <a href="../../privacy/">&#38577;&#31169;&#27402;&#25919;&#31574;</a></span></footer>
-    <script src="../../assets/guide-lesson-page.js?v=20260929-test-client"></script>
+    <script src="../../assets/guide-lesson-page.js?v=20260927-client-actions"></script>
   </body>
 </html>
 '@
