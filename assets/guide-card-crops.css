@@ -4,7 +4,7 @@
 
 /* 首頁總覽以完整程式入口畫面呈現；卡片熱區沒有文字覆蓋。 */
 .workspace-guide {
-  max-width: 1350px;
+  max-width: 900px;
   margin: 22px auto 0;
   overflow: hidden;
   border: 1px solid #8fc6df;
