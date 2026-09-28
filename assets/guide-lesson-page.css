@@ -6,6 +6,10 @@
 .lesson-page-list article { max-width: 1200px; margin: 0 auto; padding: 28px 32px !important; }
 .lesson-page-list article > h3 { display: none; }
 .lesson-page-list .guide-figure { width: min(1100px, 100%); min-width: 0; margin: 12px auto 24px; }
+.lesson-page-list .guide-figure:has(.guide-image-callout) {
+  width: min(720px, calc(100% - 420px));
+  min-width: 600px;
+}
 .lesson-page-list .guide-image-callouts--inline { max-width: 1100px; }
 .lesson-page-list dl { max-width: 1020px; margin: 0 auto !important; }
 .lesson-page-footer { display: block; margin-top: 32px; color: #0f638e; font-weight: 800; text-decoration: none; }
@@ -13,4 +17,5 @@
 @media (max-width: 760px) {
   .lesson-page-main { padding: 28px 16px 48px; }
   .lesson-page-list article { padding: 20px 14px !important; }
+  .lesson-page-list .guide-figure:has(.guide-image-callout) { width: 100%; min-width: 0; }
 }

@@ -215,8 +215,10 @@
   width: 23px;
   height: 23px;
   border-radius: 50%;
-  background: #e25348;
-  color: #fff;
+  box-sizing: border-box;
+  border: 2px solid #e25348;
+  background: #fff;
+  color: #e25348;
   font-size: .83rem;
 }
 .guide-image-callout::after {
@@ -265,15 +267,15 @@
   overflow: visible;
   pointer-events: none;
 }
-.guide-leaders line { stroke: #e25348; stroke-width: .35; }
+.guide-leaders line { stroke: #e25348; stroke-width: .24; }
 .guide-target-dot {
   position: absolute;
   z-index: 2;
   top: var(--target-y);
   left: var(--target-x);
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 8px;
+  height: 8px;
   box-sizing: border-box;
   transform: translate(-50%, -50%);
   border-radius: 50%;
@@ -283,8 +285,8 @@
 .guide-target-dot::after {
   content: "";
   position: absolute;
-  inset: 3px;
-  border: 1.5px solid #fff;
+  inset: 1.5px;
+  border: 1px solid #fff;
   border-radius: 50%;
 }
 .guide-image-callouts--inline {

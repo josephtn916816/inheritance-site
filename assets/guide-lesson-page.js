@@ -4,6 +4,17 @@
   const title = document.querySelector('[data-lesson-title]');
   if (!pageId || !host || !title) return;
 
+  document.querySelectorAll('[data-history-back]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      // 直接開啟教學頁時，瀏覽器也可能只有一個空白新分頁的歷史紀錄；
+      // 因此以實際來源頁判斷，沒有來源時仍使用 href 回教學總覽。
+      if (document.referrer) {
+        event.preventDefault();
+        window.history.back();
+      }
+    });
+  });
+
   fetch('../index.html')
     .then((response) => {
       if (!response.ok) throw new Error('無法載入教學資料');
@@ -21,7 +32,7 @@
       host.replaceChildren(lesson);
 
       const annotations = document.createElement('script');
-      annotations.src = '../../assets/guide-annotations.js?v=20260927-client-actions';
+      annotations.src = '../../assets/guide-annotations.js?v=20260928-precision-callouts';
       annotations.defer = true;
       document.body.append(annotations);
     })
@@ -30,3 +41,4 @@
       console.error(error);
     });
 })();
+

@@ -2,13 +2,40 @@
 (() => {
   const numberPattern = /[①②③④⑤]/;
   const assetRoot = document.body.dataset.guideAssets || '../assets';
-  // 只使用已依實機畫面核對過的標示座標；未核對的頁面絕不猜測位置。
+  // 每個座標皆以各自的 1350 × 663 實機截圖定位；三個說明固定為上、左、右，
+  // 只改變指向的畫面控制項，避免文字或按鍵被說明框遮住。
+  const targetLayout = (top, left, right) => [
+    { side: 'top', top: '-72px', left: 59, startX: 59, startY: -3, x: top[0], y: top[1] },
+    { side: 'left', top: 42, startX: -3, startY: 53, x: left[0], y: left[1] },
+    { side: 'right', top: 27, startX: 103, startY: 37, x: right[0], y: right[1] }
+  ];
   const verifiedTargets = {
     'client-profile': [
       { side: 'top', top: '-72px', left: 59, startX: 59, startY: -3, x: 59, y: 30 },
       { side: 'left', top: 42, startX: -3, startY: 53, x: 20, y: 39 },
       { side: 'right', top: 27, startX: 103, startY: 37, x: 85, y: 27 }
-    ]
+    ],
+    'client-profile-new': targetLayout([59, 17], [20, 48], [86, 25]),
+    'client-profile-search': targetLayout([34, 13], [18, 31], [72, 44]),
+    'business-card-scan': targetLayout([23, 52], [74, 47], [23, 84]),
+    'client-service-history': targetLayout([81, 17], [39, 54], [84, 18]),
+    'family': targetLayout([53, 54], [3, 44], [50, 52]),
+    'inheritance-order': targetLayout([86, 17], [27, 55], [75, 55]),
+    'deduction': targetLayout([52, 12], [25, 44], [76, 72]),
+    'estate-tax': targetLayout([25, 30], [48, 46], [79, 72]),
+    'asset-distribution-tax': targetLayout([24, 34], [25, 61], [78, 89]),
+    'commercial-insurance': targetLayout([18, 33], [39, 45], [79, 70]),
+    'disability-grades': targetLayout([7, 15], [19, 26], [85, 80]),
+    'retirement-pension': targetLayout([87, 12], [22, 33], [25, 76]),
+    'retirement-labor-scenario': targetLayout([84, 9], [18, 23], [50, 55]),
+    'retirement-pension-schedule': targetLayout([85, 9], [18, 23], [51, 58]),
+    'loan-analysis': targetLayout([74, 8], [20, 38], [76, 61]),
+    'land-exchange': targetLayout([73, 18], [40, 56], [85, 18]),
+    'report-center': targetLayout([12, 39], [38, 51], [82, 20]),
+    'laws': targetLayout([20, 16], [31, 45], [76, 48]),
+    'backup-restore': targetLayout([12, 65], [54, 63], [83, 61]),
+    'email-automation': targetLayout([17, 31], [51, 31], [77, 31]),
+    'commercial-control': targetLayout([50, 17], [21, 58], [74, 19])
   };
   const fixedAnnotationImages = {
     'client-profile': 'client-profile-annotated-v5.png?v=20260928-inner-edge-markers'
