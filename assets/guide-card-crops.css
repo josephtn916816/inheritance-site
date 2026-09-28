@@ -13,7 +13,7 @@
   box-shadow: 0 10px 25px #1a5f9028;
 }
 .workspace-guide-image { position: relative; overflow: hidden; }
-.workspace-guide-image > img { display: block; width: 100%; height: auto; margin-bottom: -42px; }
+.workspace-guide-image > img { display: block; width: 100%; height: auto; }
 .workspace-hotspot {
   position: absolute;
   left: var(--x);
@@ -30,50 +30,6 @@
   box-shadow: inset 0 0 0 3px #e25348, 0 0 0 2px #fff, 0 0 0 5px #e25348;
   background: #ffffff10;
 }
-.workspace-software-info {
-  position: absolute;
-  left: 2.6%;
-  bottom: 5.8%;
-  z-index: 2;
-  padding: 7px 11px;
-  border: 1px solid #9de5f0;
-  border-radius: 8px;
-  background: #06365ccc;
-  color: #fff;
-  font-size: clamp(.68rem, 1.15vw, .93rem);
-  font-weight: 800;
-  letter-spacing: .03em;
-}
-.workspace-guide-bottom-cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 9px;
-  width: 72.1%;
-  margin-left: 27.9%;
-  padding: 9px 10px 12px;
-  border-top: 1px solid #e2edf3;
-  background: #fff;
-}
-.workspace-bottom-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  min-height: 58px;
-  padding: 9px 11px;
-  border: 1px solid #81c6e7;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #dff4ff, #eefaff);
-  color: #164f70;
-  text-decoration: none;
-}
-.workspace-bottom-card--email { border-color: #7dcab2; background: linear-gradient(135deg, #e5faf3, #effcf8); }
-.workspace-bottom-card:hover, .workspace-bottom-card:focus-visible { box-shadow: inset 0 0 0 2px #e25348; }
-.workspace-bottom-card > span { display: grid; gap: 3px; min-width: 0; }
-.workspace-bottom-card b { color: #164f70; font-size: clamp(.72rem, 1.28vw, 1rem); line-height: 1.1; }
-.workspace-bottom-card small { color: #28627f; font-size: clamp(.58rem, 1.02vw, .8rem); line-height: 1.2; }
-.workspace-bottom-card i { display: grid; flex: 0 0 auto; place-items: center; width: 30px; height: 30px; border-radius: 7px; background: #338faa; color: #fff; font-size: 1rem; font-style: normal; box-shadow: 0 2px 5px #196a8040; }
-.workspace-bottom-card--email i { background: #2a9a78; }
 .workspace-guide-tip {
   max-width: 1350px;
   min-height: 116px;
@@ -340,13 +296,10 @@
 }
 @media (max-width: 760px) {
   .workspace-guide { border-radius: 10px; }
-  .workspace-guide-image > img { margin-bottom: -28px; }
   .workspace-hotspot { border-radius: 8px; }
   .workspace-hotspot:hover,
   .workspace-hotspot:focus-visible { box-shadow: inset 0 0 0 2px #e25348, 0 0 0 1px #fff, 0 0 0 3px #e25348; }
   .workspace-guide-tip { min-height: 128px; padding: 15px; }
-  .workspace-software-info { bottom: 6%; padding: 4px 6px; border-radius: 5px; }
-  .workspace-guide-bottom-cards { width: auto; margin-left: 0; grid-template-columns: 1fr; }
   .workspace-guide-lower { grid-template-columns: 1fr; }
   .guide-card-grid article:not(.customer-card) { grid-template-columns: 1fr !important; }
   .guide-card-grid article > a:has(img) { grid-column: 1 !important; grid-row: auto !important; width: min(302px, 100%) !important; }
