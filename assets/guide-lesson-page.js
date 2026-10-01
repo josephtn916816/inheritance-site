@@ -1,4 +1,12 @@
 (() => {
+  const guideAssets = document.body.dataset.guideAssets;
+  if (guideAssets) {
+    const analytics = document.createElement('script');
+    analytics.src = `${guideAssets}/analytics.js?v=20261001`;
+    analytics.defer = true;
+    document.head.append(analytics);
+  }
+
   const pageId = document.body.dataset.lesson;
   const host = document.querySelector('[data-lesson-host]');
   const title = document.querySelector('[data-lesson-title]');
@@ -29,11 +37,22 @@
       const lesson = article.cloneNode(true);
       title.textContent = lesson.querySelector('h3')?.textContent?.trim() || '操作教學';
       document.title = `${title.textContent}｜操作教學中心｜傳承智策`;
+      const mascot = document.createElement('aside');
+      mascot.className = 'lesson-page-mascot';
+      mascot.setAttribute('aria-label', '操作步驟引導小機器人');
+      mascot.innerHTML = '<img src="../../assets/mascots/heritage-robot-guide-v1.png" alt="小機器人正在說明操作步驟">';
+      title.insertAdjacentElement('afterend', mascot);
       host.replaceChildren(lesson);
 
       const annotations = document.createElement('script');
       annotations.src = '../../assets/guide-annotations.js?v=20260928-precision-callouts';
       annotations.defer = true;
+      annotations.addEventListener('load', () => {
+        const detailedSteps = document.createElement('script');
+        detailedSteps.src = '../../assets/guide-detailed-steps.js?v=20260928-user-supplied-screenshots';
+        detailedSteps.defer = true;
+        document.body.append(detailedSteps);
+      }, { once: true });
       document.body.append(annotations);
     })
     .catch((error) => {

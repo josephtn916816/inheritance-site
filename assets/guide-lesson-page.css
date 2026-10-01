@@ -2,6 +2,8 @@
 .lesson-back { display: inline-block; margin-bottom: 24px; color: #0f638e; font-weight: 800; text-decoration: none; }
 .lesson-back:hover, .lesson-back:focus-visible { text-decoration: underline; }
 .lesson-page-title { margin: 0 0 22px; color: #174b6d; font-size: clamp(1.8rem, 4vw, 2.7rem); }
+.lesson-page-mascot { float: right; width: 72px; height: 86px; margin: -16px 2px 8px 16px; pointer-events: none; }
+.lesson-page-mascot img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 5px 6px rgba(8, 62, 89, .13)); }
 .lesson-page-list { display: block !important; }
 .lesson-page-list article { max-width: 1200px; margin: 0 auto; padding: 28px 32px !important; }
 .lesson-page-list article > h3 { display: none; }
@@ -12,10 +14,32 @@
 }
 .lesson-page-list .guide-image-callouts--inline { max-width: 1100px; }
 .lesson-page-list dl { max-width: 1020px; margin: 0 auto !important; }
+.lesson-stage-list { display: grid; gap: 28px; max-width: 1100px; margin: 20px auto 30px; }
+.lesson-stage { padding: 20px; border: 1px solid #b8d9e9; border-radius: 14px; background: #fafdff; box-shadow: 0 7px 18px rgba(26, 95, 144, .08); }
+.lesson-stage h4 { margin: 0 0 14px; color: #174b6d; font-size: 1.14rem; }
+.lesson-stage figure { margin: 0; }
+.lesson-stage figure img { display: block; width: 100%; height: auto; border: 1px solid #9bcde4; border-radius: 10px; background: #fff; }
+.lesson-stage figcaption { margin-top: 8px; color: #527184; font-size: .9rem; line-height: 1.55; }
+.lesson-stage ol { margin: 16px 0 0; padding: 0; list-style: none; counter-reset: lesson-step; }
+.lesson-stage li { position: relative; min-height: 34px; margin-top: 9px; padding: 8px 12px 8px 50px; border: 1px solid #d2e6f0; border-radius: 9px; background: #fff; color: #315c75; line-height: 1.55; counter-increment: lesson-step; }
+.lesson-stage li::before { content: counter(lesson-step); position: absolute; top: 8px; left: 12px; display: grid; place-items: center; width: 25px; height: 25px; border-radius: 50%; background: #e53935; box-shadow: inset 0 0 0 2px #fff, 0 1px 4px rgba(122, 20, 24, .35); color: #fff; font-size: .8rem; font-weight: 900; }
+/* 實機圖的步驟說明必須浮在圖外圍；不能被通用清單樣式改回圖下方。 */
+.lesson-stage .lesson-stage-figure .guide-image-callout {
+  position: absolute !important;
+}
+.lesson-stage .lesson-stage-figure:has(.guide-image-callout[data-side="top"]) {
+  margin-top: 132px;
+}
+.lesson-stage .lesson-stage-figure .guide-leaders line {
+  stroke-width: .16;
+}
 .lesson-page-footer { display: block; margin-top: 32px; color: #0f638e; font-weight: 800; text-decoration: none; }
 .lesson-error { padding: 22px; border: 1px solid #e4a09b; border-radius: 12px; background: #fff5f4; color: #8c302a; }
 @media (max-width: 760px) {
   .lesson-page-main { padding: 28px 16px 48px; }
+  .lesson-page-mascot { width: 56px; height: 66px; margin: -8px 0 6px 10px; }
   .lesson-page-list article { padding: 20px 14px !important; }
   .lesson-page-list .guide-figure:has(.guide-image-callout) { width: 100%; min-width: 0; }
+  .lesson-stage { padding: 13px; }
+  .lesson-stage li { padding-left: 46px; }
 }
