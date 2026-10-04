@@ -44,16 +44,11 @@
       title.insertAdjacentElement('afterend', mascot);
       host.replaceChildren(lesson);
 
-      const annotations = document.createElement('script');
-      annotations.src = '../../assets/guide-annotations.js?v=20260928-precision-callouts';
-      annotations.defer = true;
-      annotations.addEventListener('load', () => {
-        const detailedSteps = document.createElement('script');
-        detailedSteps.src = '../../assets/guide-detailed-steps.js?v=20260928-user-supplied-screenshots';
-        detailedSteps.defer = true;
-        document.body.append(detailedSteps);
-      }, { once: true });
-      document.body.append(annotations);
+      // 獨立教學頁只使用逐圖的詳細說明，避免簡略標記與完整步驟重複出現。
+      const detailedSteps = document.createElement('script');
+      detailedSteps.src = '../../assets/guide-detailed-steps.js?v=20261004-dot-leader-fix';
+      detailedSteps.defer = true;
+      document.body.append(detailedSteps);
     })
     .catch((error) => {
       host.innerHTML = '<p class="lesson-error">目前無法載入此教學頁。請回到教學總覽重新選擇功能。</p>';

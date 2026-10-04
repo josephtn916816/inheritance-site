@@ -132,6 +132,7 @@
       if (!point) return;
       const callout = document.createElement('li');
       callout.className = 'guide-image-callout';
+      callout.dataset.step = String(stepIndex);
       callout.dataset.side = point.side;
       callout.style.setProperty('--callout-top', typeof point.top === 'number' ? `${point.top}%` : point.top);
       if (point.left != null) callout.style.setProperty('--callout-left', `${point.left}%`);
@@ -140,19 +141,46 @@
       callouts.append(callout);
 
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      line.setAttribute('x1', String(point.startX));
-      line.setAttribute('y1', String(point.startY));
+      line.dataset.step = String(stepIndex);
+      line.setAttribute('x1', String(point.x));
+      line.setAttribute('y1', String(point.y));
       line.setAttribute('x2', String(point.x));
       line.setAttribute('y2', String(point.y));
       svg.append(line);
 
       const dot = document.createElement('span');
       dot.className = 'guide-target-dot';
+      dot.textContent = String(stepIndex + 1);
+      dot.setAttribute('aria-label', `步驟 ${stepIndex + 1} 的操作位置`);
       dot.style.setProperty('--target-x', `${point.x}%`);
       dot.style.setProperty('--target-y', `${point.y}%`);
       figure.append(dot);
     });
     figure.append(callouts);
+    const syncLeaders = () => {
+      const figureRect = figure.getBoundingClientRect();
+      const imageRect = figure.querySelector('img')?.getBoundingClientRect();
+      if (!figureRect.width || !figureRect.height || !imageRect?.width || !imageRect.height) return;
+      svg.querySelectorAll('line').forEach((line) => {
+        const stepIndex = Number(line.dataset.step);
+        const point = entry.targets[stepIndex];
+        const callout = callouts.querySelector(`[data-step="${stepIndex}"]`);
+        if (!point || !callout) return;
+        const calloutRect = callout.getBoundingClientRect();
+        const targetX = (point.x / 100) * figureRect.width;
+        const targetY = (point.y / 100) * imageRect.height;
+        const startX = Math.max(calloutRect.left - figureRect.left, Math.min(targetX, calloutRect.right - figureRect.left));
+        const startY = Math.max(calloutRect.top - figureRect.top, Math.min(targetY, calloutRect.bottom - figureRect.top));
+        line.setAttribute('x1', String((startX / figureRect.width) * 100));
+        line.setAttribute('y1', String((startY / figureRect.height) * 100));
+        line.setAttribute('x2', String((targetX / figureRect.width) * 100));
+        line.setAttribute('y2', String((targetY / figureRect.height) * 100));
+      });
+    };
+    const screenshot = figure.querySelector('img');
+    screenshot?.addEventListener('load', syncLeaders, { once: true });
+    requestAnimationFrame(syncLeaders);
+    window.addEventListener('resize', syncLeaders, { passive: true });
     const caption = document.createElement('figcaption');
     caption.textContent = '依紅點所指目標逐項操作；說明框與紅點均設在按鍵、欄位文字之外。';
     figure.append(caption);

@@ -17,9 +17,9 @@ Google Analytics 管理入口：<https://analytics.google.com/>。
 
 1. 登入 Google Analytics 4，選擇「傳承智策 官方網站」。
 2. 在「報表 → 互動 → 事件」查看：
-   - `download_windows_client_17_0_104`
-   - `download_android_phone_17_0_104`
-   - `download_android_tablet_17_0_104`
+   - `download_windows_client_17_0_109`
+   - `download_android_phone_17_0_109`
+   - `download_android_tablet_17_0_109`
 3. 在「報表快照」查看使用者、瀏覽量、來源與裝置趨勢。
 4. 若出現異常流量，只記錄日期、來源與頁面；不要把客戶資料輸入 Analytics。
 
@@ -62,4 +62,4 @@ Google Analytics 管理入口：<https://analytics.google.com/>。
 - 不在網站儲存訪客姓名、客戶案件、表單內容、身分證號、地址、授權碼或密碼。
 - 靜態 GitHub Pages 不具備可靠的登入保護；因此不建立看似「只有管理者可見」但其實可被直接開啟的網站後台。
 
-最後更新：2026-10-01
+最後更新：2026-10-03

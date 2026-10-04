@@ -17,10 +17,78 @@
   filter: drop-shadow(0 6px 7px rgba(8, 62, 89, .15));
 }
 
+/* 「開始使用」頁：機器人保留透明輪廓與完整比例，不放入有底色的圖示框。 */
+body:has(.page-mascot[aria-label="開始使用引導小機器人"]) {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(23, 183, 203, .3), transparent 30%),
+    linear-gradient(135deg, #061b35 0%, #0a405f 52%, #07556b 100%);
+}
+
+body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .section > h1,
+body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .section > .section-lead {
+  color: #f3fcff;
+  text-shadow: 0 2px 12px rgba(0, 12, 28, .48);
+}
+
+body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .page-mascot {
+  width: 112px;
+  height: 136px;
+  margin: -20px 0 10px 24px;
+}
+
+body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .start-path {
+  grid-template-columns: 74px minmax(0, 1fr) auto;
+}
+
+body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .start-path .robot-spot {
+  width: 70px;
+  height: 84px;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+}
+
+body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .start-path .robot-spot img {
+  width: 70px;
+  height: 84px;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 5px 6px rgba(3, 36, 57, .2));
+}
+
+body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .start-path.understand .robot-spot img {
+  content: url("mascots/heritage-robot-analysis-v2.png");
+}
+
+body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .start-path.learn .robot-spot img {
+  content: url("mascots/heritage-robot-document-v1.png");
+}
+
+body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .start-path.help .robot-spot img {
+  content: url("mascots/heritage-robot-pointing-v1.png");
+}
+
 @media (max-width: 760px) {
   .page-mascot {
     width: 66px;
     height: 78px;
     margin: -5px 0 8px 12px;
+  }
+
+  body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .page-mascot {
+    width: 82px;
+    height: 100px;
+  }
+
+  body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .start-path {
+    grid-template-columns: 62px minmax(0, 1fr) auto;
+  }
+
+  body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .start-path .robot-spot,
+  body:has(.page-mascot[aria-label="開始使用引導小機器人"]) .start-path .robot-spot img {
+    width: 58px;
+    height: 70px;
   }
 }

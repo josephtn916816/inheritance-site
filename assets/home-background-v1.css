@@ -1,8 +1,8 @@
 /* 首頁專用背景：不套用至操作教學、支援或其他獨立頁面。 */
 body.home-page {
-  background-color: #062f4d;
+  background-color: #031426;
   background-image:
-    linear-gradient(180deg, rgba(232, 246, 248, .5) 0%, rgba(222, 241, 244, .5) 50%, rgba(215, 237, 241, .54) 100%),
+    linear-gradient(180deg, rgba(2, 15, 33, .76) 0%, rgba(3, 29, 48, .72) 52%, rgba(2, 24, 43, .8) 100%),
     url("backgrounds/heritage-deep-teal-network-v1.png");
   background-position: center top, center top;
   background-size: cover, max(1440px, 100vw) auto;
@@ -24,10 +24,10 @@ body.home-page .hero {
   isolation: isolate;
   overflow: hidden;
   padding: clamp(32px, 4vw, 54px);
-  border: 1px solid rgba(157, 204, 215, .75);
+  border: 1px solid rgba(94, 205, 226, .56);
   border-radius: 30px;
-  background: linear-gradient(110deg, rgba(250, 254, 255, .94) 0%, rgba(239, 250, 252, .86) 58%, rgba(205, 240, 241, .76) 100%);
-  box-shadow: 0 22px 58px rgba(1, 27, 51, .34);
+  background: linear-gradient(122deg, #020f25 0%, #052e50 48%, #064d61 100%);
+  box-shadow: 0 22px 58px rgba(0, 8, 22, .64);
 }
 
 body.home-page .hero::before {
@@ -36,9 +36,9 @@ body.home-page .hero::before {
   inset: 0;
   content: "";
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, .23) 0%, rgba(255, 255, 255, .03) 62%),
+    linear-gradient(90deg, rgba(5, 19, 39, .46) 0%, rgba(5, 19, 39, .08) 62%),
     url("backgrounds/heritage-deep-teal-network-v1.png") right center / cover no-repeat;
-  opacity: .28;
+  opacity: .18;
 }
 
 body.home-page .hero-card {
@@ -52,10 +52,101 @@ body.home-page .workspace-hero {
   grid-template-columns: minmax(260px, .76fr) minmax(0, 1.24fr);
   gap: clamp(24px, 3vw, 44px);
   align-items: center;
+  border-color: rgba(95, 212, 231, .52);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(18, 180, 205, .42), transparent 38%),
+    linear-gradient(122deg, #020f25 0%, #052e50 48%, #064d61 100%);
+  box-shadow: 0 24px 62px rgba(0, 8, 22, .64);
+}
+
+/* 首頁品牌識別：採原始徽章、金色細框與深色玻璃底，與主視覺保持同一專業調性。 */
+body.home-page .hero-brand-lockup {
+  display: inline-grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 13px;
+  align-items: center;
+  margin: 0 0 18px;
+  padding: 8px 15px 8px 8px;
+  border: 1px solid rgba(227, 193, 95, .72);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(3, 19, 43, .86), rgba(8, 76, 93, .65));
+  box-shadow: 0 10px 25px rgba(0, 5, 16, .34), inset 0 1px 0 rgba(255, 240, 184, .18);
+}
+
+body.home-page .hero-brand-lockup img {
+  display: block;
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 7px rgba(0, 0, 0, .38));
+}
+
+body.home-page .hero-brand-lockup div {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+body.home-page .hero-brand-lockup span {
+  color: #9deef4;
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+body.home-page .hero-brand-lockup strong {
+  color: #fff8d8;
+  font-size: 1.42rem;
+  letter-spacing: .1em;
+  line-height: 1.25;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .48);
+}
+
+body.home-page .hero-brand-lockup small {
+  color: #d9f7f8;
+  font-size: .76rem;
+  line-height: 1.45;
 }
 
 body.home-page .workspace-hero-intro .lead {
   max-width: 33rem;
+}
+
+body.home-page .workspace-hero::before {
+  opacity: .13;
+}
+
+/* 主視覺左側資訊固定為兩行，並在淡化背景上維持清楚對比。 */
+body.home-page .workspace-hero-intro h1 {
+  color: #fff;
+  font-size: clamp(1.95rem, 3.4vw, 3.25rem);
+  line-height: 1.26;
+  text-shadow: 0 2px 12px rgba(4, 35, 57, .9);
+}
+
+body.home-page .workspace-hero-intro h1 span,
+body.home-page .workspace-hero-intro h1 em {
+  white-space: nowrap;
+}
+
+body.home-page .workspace-hero-intro h1 em,
+body.home-page .workspace-hero-intro .lead {
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(4, 35, 57, .9);
+}
+
+/* 首頁背景區塊的大標題維持白字；淺色卡片內的文字不受影響。 */
+body.home-page main > .section:not(.panel):not(.guide-callout):not(.support-callout) > h2 {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(4, 35, 57, .9);
+}
+
+/* 深色首頁背景上的輔助文字改用亮色；白色卡片內的深色文字不受影響。 */
+body.home-page .workspace-hero-intro .hero-note,
+body.home-page main > .section:not(.panel):not(.guide-callout):not(.support-callout) > .section-lead,
+body.home-page .disclaimer > p {
+  color: #edfaff;
+  text-shadow: 0 2px 10px rgba(4, 35, 57, .82);
 }
 
 body.home-page .workspace-home-preview {
@@ -146,6 +237,71 @@ body.home-page .release-card {
   backdrop-filter: blur(4px);
 }
 
+/* 首頁四個主題入口：以畫面縮圖與一句用途說明降低留白，保留原有連結與操作順序。 */
+body.home-page .page-directory .grid.two {
+  gap: 18px;
+}
+
+body.home-page .page-directory .directory-entry {
+  display: grid;
+  grid-template-columns: 164px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  min-height: 206px;
+  padding: 18px;
+  overflow: hidden;
+  border-color: rgba(111, 205, 224, .48);
+  background: linear-gradient(135deg, rgba(248, 253, 255, .97), rgba(224, 243, 248, .94));
+}
+
+body.home-page .page-directory .directory-entry figure {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-height: 142px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(68, 170, 199, .5);
+  border-radius: 13px;
+  background: #0a3453;
+  box-shadow: 0 8px 18px rgba(2, 31, 52, .19);
+}
+
+body.home-page .page-directory .directory-entry figure img {
+  display: block;
+  width: 100%;
+  height: 112px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+body.home-page .page-directory .directory-entry figcaption {
+  padding: 5px 9px;
+  color: #eafcff;
+  background: #073451;
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-align: center;
+}
+
+body.home-page .page-directory .directory-entry h3 {
+  margin: 4px 0 6px;
+  color: #123f60;
+}
+
+body.home-page .page-directory .directory-entry p {
+  margin: 0;
+  color: #41677f;
+}
+
+body.home-page .page-directory .directory-entry .actions {
+  margin-top: 14px;
+}
+
+body.home-page .page-directory .directory-entry .button {
+  display: inline-block;
+}
+
 body.home-page .start-path {
   grid-template-columns: 82px minmax(0, 1fr) auto;
   min-height: 136px;
@@ -200,6 +356,21 @@ body.home-page .robot-spot img {
     gap: 24px;
   }
 
+  body.home-page .hero-brand-lockup {
+    grid-template-columns: 62px minmax(0, 1fr);
+    margin-bottom: 15px;
+    padding-right: 12px;
+  }
+
+  body.home-page .hero-brand-lockup img {
+    width: 62px;
+    height: 62px;
+  }
+
+  body.home-page .hero-brand-lockup strong {
+    font-size: 1.2rem;
+  }
+
   body.home-page .workspace-home-preview {
     grid-row: 1;
   }
@@ -215,6 +386,21 @@ body.home-page .robot-spot img {
   body.home-page .start-path {
     grid-template-columns: 66px minmax(0, 1fr) auto;
     min-height: 118px;
+  }
+
+  body.home-page .page-directory .directory-entry {
+    grid-template-columns: 118px minmax(0, 1fr);
+    gap: 13px;
+    min-height: 0;
+    padding: 14px;
+  }
+
+  body.home-page .page-directory .directory-entry figure {
+    min-height: 108px;
+  }
+
+  body.home-page .page-directory .directory-entry figure img {
+    height: 82px;
   }
 
   body.home-page .robot-spot,

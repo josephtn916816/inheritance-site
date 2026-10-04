@@ -28,7 +28,7 @@ function Test-FileText {
 
 Write-Host "Inheritance site pre-publish check: $SiteRoot" -ForegroundColor Cyan
 
-$requiredFiles = @('index.html', '404.html', 'robots.txt', 'sitemap.xml', 'privacy/index.html', 'support/index.html', 'releases/index.html', 'assets/analytics.js')
+$requiredFiles = @('index.html', '404.html', 'robots.txt', 'sitemap.xml', 'start/index.html', 'product/index.html', 'showcase/index.html', 'privacy/index.html', 'support/index.html', 'releases/index.html', 'assets/analytics.js')
 foreach ($relativePath in $requiredFiles) {
     Test-Requirement "Required file: $relativePath" (Test-Path -LiteralPath (Join-Path $SiteRoot $relativePath)) 'File not found'
 }
@@ -36,9 +36,12 @@ foreach ($relativePath in $requiredFiles) {
 Test-Requirement 'robots sitemap' (Test-FileText 'robots.txt' 'Sitemap: https://josephtn916816.github.io/inheritance-site/sitemap.xml') 'Missing or invalid sitemap URL'
 Test-Requirement 'home canonical URL' (Test-FileText 'index.html' 'https://josephtn916816.github.io/inheritance-site/') 'Missing canonical URL'
 Test-Requirement 'privacy analytics disclosure' (Test-FileText 'privacy/index.html' 'Google Analytics 4') 'Missing analytics disclosure'
-$homeContent = Get-Content -LiteralPath (Join-Path $SiteRoot 'index.html') -Raw -Encoding UTF8
-$eventCount = ([regex]::Matches($homeContent, 'data-analytics-event=')).Count
-Test-Requirement 'three distinct download events' ($eventCount -eq 3) "Expected 3, found $eventCount"
+$pagedNavigation = @('start/', 'product/', 'showcase/', 'guide/', 'releases/', 'data-updates/', 'support/', 'privacy/')
+$missingNavigation = @($pagedNavigation | Where-Object { -not (Test-FileText 'index.html' ('href="{0}"' -f $_)) })
+Test-Requirement 'home navigation uses separate pages' ($missingNavigation.Count -eq 0) ('Missing: ' + ($missingNavigation -join ', '))
+$publicHtml = Get-ChildItem -LiteralPath $SiteRoot -Recurse -Filter '*.html' -File | Where-Object { $_.FullName -notmatch '[\\/]downloads-local[\\/]' }
+$localDownloadReferences = @($publicHtml | Where-Object { (Get-Content -LiteralPath $_.FullName -Raw -Encoding UTF8) -match 'downloads-local/' })
+Test-Requirement 'no public local-download links' ($localDownloadReferences.Count -eq 0) ('Found: ' + (($localDownloadReferences | ForEach-Object { $_.FullName }) -join ', '))
 Test-Requirement 'production analytics host restriction' (Test-FileText 'assets/analytics.js' "const productionHost = 'josephtn916816.github.io';") 'Missing production host restriction'
 
 $blockedExtensions = @('.pfx', '.p12', '.key', '.pem', '.env', '.sqlite', '.db', '.bak')
