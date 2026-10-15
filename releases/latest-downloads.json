@@ -1,50 +1,50 @@
 {
-  "version": "17.0.121",
+  "version": "17.0.124",
   "date": "2026-10-15",
-  "releaseUrl": "https://github.com/heritagewise/heritagewise.github.io/releases/tag/v17.0.121-test",
+  "releaseUrl": "https://github.com/heritagewise/heritagewise.github.io/releases/tag/v17.0.124-test",
   "purpose": "直接安裝測試",
   "windowsSignature": "NotSigned",
   "androidSignature": "Android Debug",
   "assets": [
     {
-      "name": "heritagewise-windows-17.0.121.exe",
+      "name": "heritagewise-windows-17.0.124.exe",
       "label": "Windows 客戶版",
       "platform": "windows",
-      "bytes": 175665365,
-      "sha256": "784eacc9d84df32efa2a1f66f40e5837710a849d0d50c73a308d2da040fa034a",
-      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.121-test/heritagewise-windows-17.0.121.exe"
+      "bytes": 176796074,
+      "sha256": "dc85618100f74655a51c5d78dc4d142328dd484ed8e114c3d43519fb7e172706",
+      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.124-test/heritagewise-windows-17.0.124.exe"
     },
     {
-      "name": "heritagewise-android-phone-17.0.121.apk",
+      "name": "heritagewise-android-phone-17.0.124.apk",
       "label": "Android 手機版",
       "platform": "android-phone",
-      "bytes": 117485548,
-      "sha256": "7a0555e3ae61d3c99d5218c24af4bd6fddbff5c46b239b6e55bc43e2c90d7ebb",
-      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.121-test/heritagewise-android-phone-17.0.121.apk"
+      "bytes": 118637482,
+      "sha256": "2d2ffbdc168230cb9cd96b1e8ee0e71353eb71579d1e8bd12a58fdf98630e10d",
+      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.124-test/heritagewise-android-phone-17.0.124.apk"
     },
     {
-      "name": "heritagewise-android-tablet-17.0.121.apk",
+      "name": "heritagewise-android-tablet-17.0.124.apk",
       "label": "Android 平板版",
       "platform": "android-tablet",
-      "bytes": 117485548,
-      "sha256": "2606f569336c0cc34bff923ff1fe837912429a776a7cd4502332851db517449c",
-      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.121-test/heritagewise-android-tablet-17.0.121.apk"
+      "bytes": 118637486,
+      "sha256": "e1545d44e1947867b8e259a8022799c84234851619c329a1dcb09bef689c1172",
+      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.124-test/heritagewise-android-tablet-17.0.124.apk"
     },
     {
-      "name": "heritagewise-linux-17.0.121.AppImage",
+      "name": "heritagewise-linux-17.0.124.AppImage",
       "label": "Linux AppImage",
       "platform": "linux-appimage",
-      "bytes": 207895920,
-      "sha256": "8c04e494bbfe46efb0322727a5584a6b7b25260bdeaf55b10982a13c12ed76fb",
-      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.121-test/heritagewise-linux-17.0.121.AppImage"
+      "bytes": 209039603,
+      "sha256": "aa1088eeecd56d7bbdbb4e10d877022521243a1ecea36c926a9f9e188957dbbb",
+      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.124-test/heritagewise-linux-17.0.124.AppImage"
     },
     {
-      "name": "heritagewise-linux-17.0.121.deb",
+      "name": "heritagewise-linux-17.0.124.deb",
       "label": "Linux DEB",
       "platform": "linux-deb",
-      "bytes": 172807176,
-      "sha256": "0b0c3bd72084f7a56a585913acc9f0c402189e2970fe197fd4fa031efd2d0109",
-      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.121-test/heritagewise-linux-17.0.121.deb"
+      "bytes": 173934504,
+      "sha256": "7d764bfff6f242194353484f10ad4bce4f7ab6bf6b29a783b446745566571fe9",
+      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.124-test/heritagewise-linux-17.0.124.deb"
     }
   ]
 }
