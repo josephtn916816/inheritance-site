@@ -1,0 +1,5 @@
+1f38efe0a6ad83f02b57e7c73741367000eb93b60968a14614d6100790440e10  heritagewise-windows-17.0.126.exe
+5f39c4aa5467beb71accab358b166c3226680469b4a884968c26b1edca4f8ea8  heritagewise-android-phone-17.0.126.apk
+a4d407c4e5a49839ab2754d7a329926a6f64fc08b1dab61128e58ba2bf100087  heritagewise-android-tablet-17.0.126.apk
+246cde4b22b90a6fb0a8ea4f5c4f728fb07bb906f5b1edd5dd1d718c97072dd0  heritagewise-linux-17.0.126.AppImage
+a6e23dacfed81f889709eaae99624600c229e4cc13172a436960d2393e577660  heritagewise-linux-17.0.126.deb
