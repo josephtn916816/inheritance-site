@@ -45,6 +45,28 @@
       "bytes": 173949004,
       "sha256": "1184233154f16d6cef164e7076d995c0538ccd4365c4a0268ac535b2f9ba1d87",
       "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.128-test/heritagewise-linux-17.0.128.deb"
+    },
+    {
+      "build": 108,
+      "bytes": 67827314,
+      "label": "macOS Apple Silicon",
+      "name": "heritagewise-macos-arm64-17.0.128-build108.zip",
+      "platform": "macos-arm64",
+      "sha256": "47b184d06427f0507dcd66235372f9425152d8318790bf42d7c94d2f5bd146e7",
+      "signature": "hbqAqHehrB5brNXqiFv7HKm/OnUhsCvlUxaJsImz0ASqbp82JSGX7L3n6/Yby47i8m/bRFur6Zo4fE7zDM9YDQ==",
+      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.128-test/heritagewise-macos-arm64-17.0.128-build108.zip",
+      "releaseDate": "2026-11-23"
+    },
+    {
+      "build": 108,
+      "bytes": 70555141,
+      "label": "macOS Apple Silicon 安裝檔",
+      "name": "heritagewise-macos-arm64-17.0.128-build108.dmg",
+      "platform": "macos-arm64-dmg",
+      "sha256": "91d7d32af0987aac7ec8301b0600f7faef7def4501286f30d97b408747dad831",
+      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.128-test/heritagewise-macos-arm64-17.0.128-build108.dmg",
+      "releaseDate": "2026-11-23"
     }
-  ]
+  ],
+  "macosSignature": "Ad-hoc test signing; not Apple notarized"
 }
