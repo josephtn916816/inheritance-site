@@ -47,25 +47,25 @@
       "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.128-test/heritagewise-linux-17.0.128.deb"
     },
     {
-      "build": 108,
-      "bytes": 67827314,
+      "build": 109,
+      "bytes": 70191381,
       "label": "macOS Apple Silicon",
-      "name": "heritagewise-macos-arm64-17.0.128-build108.zip",
+      "name": "heritagewise-macos-arm64-17.0.128-build109.zip",
       "platform": "macos-arm64",
-      "sha256": "47b184d06427f0507dcd66235372f9425152d8318790bf42d7c94d2f5bd146e7",
-      "signature": "hbqAqHehrB5brNXqiFv7HKm/OnUhsCvlUxaJsImz0ASqbp82JSGX7L3n6/Yby47i8m/bRFur6Zo4fE7zDM9YDQ==",
-      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.128-test/heritagewise-macos-arm64-17.0.128-build108.zip",
-      "releaseDate": "2026-11-23"
+      "sha256": "700a1e92e3f0b6b102b96a98c636e7e05e4b70ade3f12170a84c52cb981dc461",
+      "signature": "VPLraMwZvtVNCWPzu00In+Zu3EXxxupPi26sqVyiInP1U9dYpMdyPSczwYJflJlr9ql1JsrvQSDhrhyoEABoBQ==",
+      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.128-test/heritagewise-macos-arm64-17.0.128-build109.zip",
+      "releaseDate": "2026-11-25"
     },
     {
-      "build": 108,
-      "bytes": 70555141,
+      "build": 109,
+      "bytes": 72857990,
       "label": "macOS Apple Silicon 安裝檔",
-      "name": "heritagewise-macos-arm64-17.0.128-build108.dmg",
+      "name": "heritagewise-macos-arm64-17.0.128-build109.dmg",
       "platform": "macos-arm64-dmg",
-      "sha256": "91d7d32af0987aac7ec8301b0600f7faef7def4501286f30d97b408747dad831",
-      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.128-test/heritagewise-macos-arm64-17.0.128-build108.dmg",
-      "releaseDate": "2026-11-23"
+      "sha256": "8960c210d621f54d1d9fafda4b0a46926ed9751c6300160a61d366df515b98b1",
+      "url": "https://github.com/heritagewise/heritagewise.github.io/releases/download/v17.0.128-test/heritagewise-macos-arm64-17.0.128-build109.dmg",
+      "releaseDate": "2026-11-25"
     }
   ],
   "macosSignature": "Ad-hoc test signing; not Apple notarized"
