@@ -341,7 +341,7 @@ body.home-page .robot-spot img {
   filter: drop-shadow(0 7px 7px rgba(4, 51, 74, .16));
 }
 
-@media (max-width: 760px), (prefers-reduced-motion: reduce) {
+@media (max-width: 760px) {
   body.home-page {
     background-attachment: scroll, scroll;
   }
@@ -411,4 +411,9 @@ body.home-page .robot-spot img {
   body.home-page .robot-spot img {
     height: 88px;
   }
+}
+
+/* 減少動態效果只調整背景，不改變內容排列。 */
+@media (prefers-reduced-motion: reduce) {
+  body.home-page { background-attachment: scroll, scroll; }
 }

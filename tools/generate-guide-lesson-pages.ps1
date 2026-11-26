@@ -13,7 +13,7 @@ $template = @'
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1280">
     <meta name="description" content="User guide.">
     <meta name="theme-color" content="#0d4d85">
     <title>&#25805;&#20316;&#25945;&#23416;&#20013;&#24515; | &#20659;&#25215;&#26234;&#31574;</title>
